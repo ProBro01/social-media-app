@@ -33,10 +33,3 @@
     height: 40px;
 }
 
-.btn::file-selector-button{
-    background-color: rgb(7, 148, 230);
-}
-
-.btn-primary{
-    color: white;
-}
