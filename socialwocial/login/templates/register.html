@@ -1,8 +1,54 @@
 {% extends 'base.html' %}
 
+{% block head %}
+<link rel="stylesheet" href="/static/registerget.css">
+{% endblock %}
+
 {% block content %}
-<form method="POST", actions='/login/register/'>
-{% csrf_token %}
-<input type="submit">
-</form>
+<div class="container">
+    <form method="POST", actions='/login/register/'>{% csrf_token %}
+        <div class='po-3'>
+            <div><label for='realname'>Name: </label></div>
+            <div>{{ regform.realname }}</div>
+        </div>
+        <div class='po-3'>
+            <div><label for='password'>Password: </label></div>
+            <div>{{ regform.password }}</div>
+        </div>
+        <div class='po-3'>
+            <div><label for='phonenumber'>Phone: </label></div>
+            <div>{{ regform.phone }}</div>
+        </div>
+        <div class='po-3'>
+            <div><label for='profilepicture'>Add a profile picture</label>{{ regform.profilepic }}</div>
+        </div>
+        <div class='po-3'>
+            <div><label for='emailid'>Email Id: </label></div>
+            <div>{{ regform.emailid }}</div>
+        </div>
+        <div class='po-3'>
+            <div><label for='qualification'>Qualification: </label></div>
+            <div>{{ regform.quailification }}</div>
+        </div>
+        <div class='po-3'>
+            <div><label for='dateofbirth'>DOB: </label></div>
+            <div>{{ regform.dob }}</div>
+        </div>
+        <div class='po-3'>
+            <div><label for='idname'>Wocial ID: </label></div>
+            <div>{{ regform.idname }}</div>
+        </div>
+        <div class='po-3'>
+            <div><label for='bannerimage'>Banner Image: </label></div>
+            <div>{{ regform.banner_image }}</div>
+        </div>
+        <input type="submit">
+    </form>
+</div>
+<script>
+    document.getElementById('profilepicture').addEventListener("change", showuploadpic)
+    function showuploadpic(){
+        console.log(document.getElementById("profilepicture").value)
+    }
+</script>
 {% endblock %}

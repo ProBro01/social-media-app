@@ -1,0 +1,42 @@
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.po-1{
+    padding: 1px;
+}
+
+.po-2{
+    padding: 3px;
+}
+
+.po-3{
+    padding: 7px;
+}
+
+.wio-1{
+    width: 40%;
+}
+
+.wio-2{
+    width: 500px;
+}
+
+.wio-3{
+    border: 1px solid black;
+    width: 500px;
+    height: 40px;
+}
+
+.btn::file-selector-button{
+    background-color: rgb(7, 148, 230);
+}
+
+.btn-primary{
+    color: white;
+}

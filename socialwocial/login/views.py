@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render, HttpResponse
-from .forms import loginform
+from .forms import loginform, registerform
 
 # Create your views here.
 def index(request):
@@ -9,7 +9,8 @@ def index(request):
 
 def register(request):
     if request.method == 'GET':
-        return render(request, "register.html")
+        form = registerform()
+        return render(request, "register.html", {"regform" : form})
     elif request.method == 'POST':
         return redirect('/profile')
         return HttpResponse("<h1>Register page</h1>")
