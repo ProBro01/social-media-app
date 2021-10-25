@@ -1,0 +1,3 @@
+have a base project over which the following app are present:
+	1. Login app: 
+	2. after entering the credentials the POST request will goes to the account app's index page where the check will happen
