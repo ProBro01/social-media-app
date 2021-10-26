@@ -12,4 +12,3 @@ class users(models.Model):
     idname = models.CharField(max_length=20)
     banner_image = models.ImageField(upload_to='bannerImages')
     timeofjoin = models.DateField(auto_now_add=True)
-    

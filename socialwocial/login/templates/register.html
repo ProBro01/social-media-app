@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="container">
-    <form method="POST", actions='/login/register/'>{% csrf_token %}
+    <form action='/profile/' method='POST' enctype="multipart/form-data">{% csrf_token %}
         <div class='po-3'>
             <div><label for='realname'>Name: </label></div>
             <div>{{ regform.realname }}</div>
@@ -21,6 +21,7 @@
         </div>
         <div class='po-3'>
             <div><label for='profilepicture'>Add a profile picture</label>{{ regform.profilepic }}</div>
+            <div id='profilepicshow'></div>
         </div>
         <div class='po-3'>
             <div><label for='emailid'>Email Id: </label></div>
@@ -39,16 +40,44 @@
             <div>{{ regform.idname }}</div>
         </div>
         <div class='po-3'>
-            <div><label for='bannerimage'>Banner Image: </label></div>
-            <div>{{ regform.banner_image }}</div>
+            <div><label for='bannerimage'>Banner Image: </label>{{ regform.banner_image }}</div>
+            <div id='bannerimageshow'></div>
         </div>
         <input type="submit">
     </form>
 </div>
 <script>
     document.getElementById('profilepicture').addEventListener("change", showuploadpic)
+    document.getElementById('bannerimage').addEventListener("change", showbannerpic)
     function showuploadpic(){
-        console.log(document.getElementById("profilepicture").value)
+        // console.log(document.getElementById('profilepicture').files)
+        var fileobject = document.getElementById('profilepicture').files
+        for (var file of fileobject){
+            var url = URL.createObjectURL(file)
+            const imgdiv = document.createElement("div")
+            const imgtag = document.createElement("img")
+            imgdiv.appendChild(imgtag)
+            // imgdiv.appendChild(imgtag)   
+            imgtag.src = url
+            imgtag.height = 100
+            imgtag.width = 100
+            imgtag.style = "border-radius: 70%"
+            document.getElementById('profilepicshow').appendChild(imgdiv)
+        }
+    }
+    function showbannerpic(){
+        var fileobject = document.getElementById('bannerimage').files
+        for (var file of fileobject){
+            var url = URL.createObjectURL(file)
+            const imgdiv = document.createElement("div")
+            const imgtag = document.createElement("img")
+            imgdiv.appendChild(imgtag)
+            // imgdiv.appendChild(imgtag)   
+            imgtag.src = url
+            imgtag.height = 100
+            imgtag.width = 100
+            document.getElementById('bannerimageshow').appendChild(imgdiv)
+        }
     }
 </script>
 {% endblock %}

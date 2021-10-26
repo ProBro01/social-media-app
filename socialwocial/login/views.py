@@ -11,9 +11,6 @@ def register(request):
     if request.method == 'GET':
         form = registerform()
         return render(request, "register.html", {"regform" : form})
-    elif request.method == 'POST':
-        return redirect('/profile')
-        return HttpResponse("<h1>Register page</h1>")
 
 def resetpasswd(request):
     return HttpResponse("<h1>Reset password </h1>")
