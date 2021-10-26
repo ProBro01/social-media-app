@@ -12,6 +12,7 @@ def index(request):
     if login request
         search the user and validate him
         them return the profile page to him with his details
+    give the correct username to profile picture and banner picture so that bugs don't occur
     '''
     if request.method == 'POST':
         profiledetails = {}
@@ -32,4 +33,6 @@ def index(request):
             banner_image = request.FILES.get('banner_image')
         )
         userobject.save()
-        return render(request, "profile.html")
+        profiledetails["profilepicture"] = users.objects.get(profilepic=f"profileimages/{request.FILES.get('profilepic')}")# change the profile pic here
+        # profiledetails["bannerpicture"] = users.objects.get(banner_image=f"bannerImages/{request.FILES.get('banner_image')}")
+        return render(request, "profile.html", profiledetails)
